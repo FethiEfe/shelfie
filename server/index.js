@@ -17,7 +17,7 @@ app.use(express.json())
 
 app.get("/api/inventory", getAll)
 
-app.post("/api/inventory" , create)
+app.post("/api/product" , create)
 
 app.delete("/api/inventory/:id", Delete)
 

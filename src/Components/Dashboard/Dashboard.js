@@ -4,20 +4,13 @@ import Product from "../Product/Product"
 class Dashboard extends Component{
     render(){
        let product = this.props.inventoryList.map((value, index) => {
-            return (
-                <div>
-                    <img src={value.img} alt =""/>
-                    <h5>{value.name}</h5>
-                    <h5>{value.price}</h5>
-                </div>
-            )
-               
+            
+            return <Product key = {index} img={value.img} name={value.name} price={value.price}/>
             
         })
         return(
             <div>
-                <Product product={product}/>
-                
+                {product}
             </div>
         )
     }
