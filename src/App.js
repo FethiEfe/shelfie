@@ -11,6 +11,7 @@ class App extends Component {
     super();
     this.state = {
     inventoryList : [],
+    selected : []
       
     }
     this.getRequest= this.getRequest.bind(this)
@@ -19,7 +20,13 @@ class App extends Component {
   componentDidMount(){
     this.getRequest ();
   }
-
+  
+  // changeSelected = (parameter) => {
+  //   console.log(parameter)
+  //   // this.setState({
+  //   //   selected: parameter
+  //   // })
+  // }
 
   // method that gets inventory from database
   getRequest () {
@@ -27,19 +34,18 @@ class App extends Component {
     .get("/api/inventory")
     .then(res => {
       this.setState({inventoryList: res.data})
-      console.log(res.data)
+     
     })
   }
-
-
-  
-
 
   render() {
     return (
       <div>
-        <Dashboard inventoryList = {this.state.inventoryList}/>
-        <Form getRequest = {this.state.getRequest}/>
+        <Dashboard inventoryList = {this.state.inventoryList} 
+                   getRequest = {this.state.getRequest}
+                  //  changeSelected = {this.state.changeSelected}
+                  />
+        <Form getRequest = {this.state.getRequest} selected = {this.state.selected}/>
         <Header />
       </div>
     );

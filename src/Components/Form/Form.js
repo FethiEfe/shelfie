@@ -5,7 +5,8 @@ class Form extends Component{
     state = {
         imageURl: "",
         productName: "",
-        price: ""
+        price: "",
+        selectedId: null
     }
 
     // this method grabs the value  in image input
@@ -41,10 +42,16 @@ class Form extends Component{
     this.setState({
       imageURl: "",
       productName: "",
-      price: ""
+      price: "",
+      
     })
   }
 
+  // componentDidUpdate(prevProps){
+  //   if(this.props.id !== prevProps.id){
+  //     this.fetchData(this.props.id)
+  //   }
+  // }
     postNewProduct = () => {
         axios
         .post("/api/product", {name: this.state.productName, price: this.state.price, img: this.state.imageURl})

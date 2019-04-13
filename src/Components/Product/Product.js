@@ -9,6 +9,9 @@ class Product extends Component{
                     <img src = {this.props.img} alt= ""/>
                     <h5>Name: {this.props.name}</h5>
                     <h5>Price: {this.props.price}</h5>
+                    <h5>{this.props.id}</h5>
+                    <button onClick = {() => this.props.deleteProduct(this.props.id)}>Delete</button>
+                    <button >Edit</button>
                 
             </div>
         )
